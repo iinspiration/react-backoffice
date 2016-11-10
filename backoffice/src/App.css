@@ -8,7 +8,6 @@
 
 .App-header {
 /*  background-color: #222;*/
-
   padding: 5px;
   color: white;
 }
@@ -19,6 +18,12 @@
 .colorgray {
   color: #ababab;
 }
+
+.photocanvas-green {
+  background-color: #054a51;
+}
+
+.top-buffer { margin-top:100px; }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
