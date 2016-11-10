@@ -1,27 +1,45 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      keyphase: 'pichaya'
+      status: false,
+      keyphase: 'pichaya',
+      input: ''
     };
     console.log('set!:'+this.state.keyphase);
-    this.handleLogin = this.handleLogin.bind(this);
+    this.handleTyping = this.handleTyping.bind(this);
   } 
-  handleLogin(event) {
+
+  handleTyping(event) {
+    console.log('got!:'+event.target.value);
         this.setState({
-          keyphase: 'ssssss'
+          input: event.target.value,
+          status: event.target.value===this.state.keyphase
         });
-        console.log('click!:'+this.state.keyphase);
-    }
+        console.log('unlocked!');
+
+  }
   render() {
+    var formClasses = classNames('bs-example','bs-example-form',{ shake: !this.state.status }
+    );
+    var iconClasses = classNames('input-group-addon','glyphicon',{ 'glyphicon-ban-circle': !this.state.status },{ 'glyphicon-ok-circle': this.state.status }
+    );
+    var lockText = 'Locked';
+    if(this.state.status){lockText = 'Unlocked!';}
     return (
-        <form className="bs-example bs-example-form" data-example-id="simple-input-groups">
+        <form className={formClasses} data-example-id="simple-input-groups">
           <div className="input-group col-lg-4 col-lg-offset-4"> 
-            <span className="input-group-addon" id="basic-addon1">login</span> 
-            <input className="form-control" placeholder={this.state.keyphase} aria-describedby="basic-addon1" /> 
-            <span className="input-group-addon" onClick={this.handleLogin}>GO!</span>
+            <span className="input-group-addon" id="basic-addon1">{lockText}</span> 
+            <input className="form-control" 
+              aria-describedby="basic-addon1" 
+              placeholder='keyphase' 
+              value={this.state.input} 
+              onChange={this.handleTyping} 
+            /> 
+            <span className={iconClasses} aria-hidden="true"></span>
           </div> 
         </form>
     );

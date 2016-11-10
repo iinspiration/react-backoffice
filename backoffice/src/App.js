@@ -4,6 +4,14 @@ import Content from './Content.js';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'Backoffice : photocanvas.in.th'
+      };
+  } 
+
   render() {
     return (
       <div className="App container">
