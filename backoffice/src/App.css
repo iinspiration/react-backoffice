@@ -23,6 +23,8 @@
   background-color: #054a51;
 }
 
+.v-buffer-ใหญ่ { margin-top:80px; margin-bottom:80px; }
+.v-buffer-เบาๆ { margin-top:20px; margin-bottom:20px; }
 .top-buffer { margin-top:100px; }
 
 @keyframes App-logo-spin {
